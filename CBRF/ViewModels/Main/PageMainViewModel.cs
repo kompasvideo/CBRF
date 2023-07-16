@@ -4,9 +4,11 @@ using CBRF.Interfaces.BIK;
 using CBRF.Interfaces.UFEBS_2023_4_1;
 using CBRF.Messages;
 using CBRF.Pages.BIK;
+using CBRF.Pages.UFEBS_2023_4_1;
 using CBRF.Services;
 using CBRF.ViewModels.Base;
 using CBRF.ViewModels.BIK;
+using CBRF.ViewModels.UFEBS_2023_4_1;
 using System.Threading;
 using System.Windows;
 using System.Windows.Input;
@@ -65,7 +67,7 @@ namespace CBRF.ViewModels.Main
             {
                 return new MyDelegateCommand(async () =>
                 {                    
-                    await messageBus.SendTo<PageDirectoryBIKViewViewModel>(new BIKMessage(""));
+                    await messageBus.SendTo<PageDirectoryBIKViewViewModel>(new Message(""));
                     pageService.ChangePage(new PageDirectoryBIKView());
                 });
             }
@@ -80,7 +82,7 @@ namespace CBRF.ViewModels.Main
             {
                 return new MyDelegateCommand(() =>
                 {
-                    cbrDsigEnvV110.Load();                    
+                    cbrDsigEnvV110.LoadXmlAndSaveToDB();                    
                     MessageBox.Show("Загрузка значений КА, ЗК в БД завершена");
                 });
             }
@@ -95,8 +97,8 @@ namespace CBRF.ViewModels.Main
             {
                 return new MyDelegateCommand(async () =>
                 {
-                    //await messageBus.SendTo<PageDirectoryBIKViewViewModel>(new BIKMessage(""));
-                    //pageService.ChangePage(new PageDirectoryBIKView());
+                    await messageBus.SendTo<PageCbrDsigEnvV110ViewModel>(new Message(""));
+                    pageService.ChangePage(new PageCbrDsigEnvV110());
                 });
             }
         }

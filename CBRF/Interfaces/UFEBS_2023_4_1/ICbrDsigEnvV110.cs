@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CBRF_DB.Models.UFEBS_2023_4_1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace CBRF.Interfaces.UFEBS_2023_4_1
 {
     public interface ICbrDsigEnvV110
     {
-        void Load();
+        void LoadXmlAndSaveToDB();
+        List<SigEnvelope> ViewSigEnvelopeInDb();
     }
 }

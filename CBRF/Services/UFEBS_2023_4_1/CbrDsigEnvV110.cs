@@ -1,6 +1,7 @@
 ﻿using CBRF.Interfaces;
 using CBRF.Interfaces.UFEBS_2023_4_1;
 using CBRF_DB.Interfaces.UFEBS_2023_4_1;
+using CBRF_DB.Models.UFEBS_2023_4_1;
 using CBRF_DB.Services;
 using Microsoft.Win32;
 using System;
@@ -14,7 +15,7 @@ namespace CBRF.Services.UFEBS_2023_4_1
 {
     public class CbrDsigEnvV110 : ICbrDsigEnvV110
     {
-        private const string urnSchema = "urn:cbr-ru:ed:v2.0";
+        private const string urnSchema = "urn:cbr-ru:dsig:env:v1.1";
         private const string xsdName = @"\XSD\UFEBS_2023_4_1\cbr_dsig_env_v1.1.0.xsd";
         private readonly IXmlFile xmlFile;
         private readonly IDBCbrDsigEnvV110 iDBCbrDsigEnvV110;
@@ -25,7 +26,7 @@ namespace CBRF.Services.UFEBS_2023_4_1
             this.iDBCbrDsigEnvV110 = iDBCbrDsigEnvV110;
         }
 
-        public void Load()
+        public void LoadXmlAndSaveToDB()
         {
             string xmlName = null;
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -41,6 +42,11 @@ namespace CBRF.Services.UFEBS_2023_4_1
                     iDBCbrDsigEnvV110.Save(loadData);
                 }
             }
+        }
+
+        public List<SigEnvelope> ViewSigEnvelopeInDb()
+        {
+            return iDBCbrDsigEnvV110.Load();
         }
     }
 }

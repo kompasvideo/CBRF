@@ -1,22 +1,26 @@
 ﻿using CBRF.Infrastructure.Commands;
 using CBRF.Interfaces.BIK;
+using CBRF.Interfaces.UFEBS_2023_4_1;
 using CBRF.Messages;
 using CBRF.Pages.Main;
 using CBRF.Services;
+using CBRF.Services.BIK;
 using CBRF.ViewModels.Base;
 using CBRF_DB.Models;
+using CBRF_DB.Models.UFEBS_2023_4_1;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Net.Mail;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Documents;
 using System.Windows.Input;
 
-namespace CBRF.ViewModels.BIK
+namespace CBRF.ViewModels.UFEBS_2023_4_1
 {
-    public class PageDirectoryBIKViewViewModel : ViewModel
+    public class PageCbrDsigEnvV110ViewModel : ViewModel
     {
-        public ObservableCollection<BICDirectoryEntry> ParticipantInfo { get; set; }
+        public ObservableCollection<SigEnvelope> SigEnvelopes { get; set; }
 
         #region Внутренние поля 
         /// <summary>
@@ -28,24 +32,25 @@ namespace CBRF.ViewModels.BIK
         /// класс, отправляющий сообщения другим страницам
         /// </summary>
         private readonly MessageBus messageBus;
-        private readonly IDirectoryBIK directoryBIK;
+        private readonly ICbrDsigEnvV110 cbrDsigEnvV110;
         #endregion
 
         #region Конструктор
-        public PageDirectoryBIKViewViewModel(PageService pageService, MessageBus messageBus, IDirectoryBIK directoryBIK)
+        public PageCbrDsigEnvV110ViewModel(PageService pageService, MessageBus messageBus, ICbrDsigEnvV110 cbrDsigEnvV110)
         {
             this.pageService = pageService;
             this.messageBus = messageBus;
-            this.directoryBIK = directoryBIK;
+            this.cbrDsigEnvV110 = cbrDsigEnvV110;
             messageBus.Receive<Message>(this, message =>
             {
-                ParticipantInfo = new ObservableCollection<BICDirectoryEntry>(directoryBIK.ViewDirectoryBIKInDB());
+                SigEnvelopes = new ObservableCollection<SigEnvelope>(cbrDsigEnvV110.ViewSigEnvelopeInDb());
                 return Task.CompletedTask;
             });
         }
         #endregion
 
         #region Комманды
+
         /// <summary>
         /// Закрыть
         /// </summary>
@@ -58,8 +63,7 @@ namespace CBRF.ViewModels.BIK
                     pageService.ChangePage(new PageMain());
                 });
             }
-        }       
+        }
         #endregion
     }
 }
-

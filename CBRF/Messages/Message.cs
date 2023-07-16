@@ -3,9 +3,9 @@ using CBRF.Interfaces;
 
 namespace CBRF.Messages
 {
-    sealed public class BIKMessage : IMessage
+    sealed public class Message : IMessage
     {
-        public BIKMessage(string str)
+        public Message(string str)
         {
             Str = str;
         }

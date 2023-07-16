@@ -1,0 +1,32 @@
+﻿<Page x:Class="CBRF.Pages.UFEBS_2023_4_1.PageCbrDsigEnvV110"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CBRF.Pages.UFEBS_2023_4_1"
+      mc:Ignorable="d" 
+      Background="{StaticResource BackGroundColor}"
+      DataContext="{Binding PageCbrDsigEnvV110ViewModel, Source={StaticResource ViewModelLocator}}"
+      >
+
+    <Grid>
+        <DockPanel>
+            <DockPanel DockPanel.Dock="Top" Background="{StaticResource HeaderBackGroundColor}" Height="30">
+                <Frame Source="/Frames/Header.xaml"/>
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Bottom"  Height="30">
+                <Button Content="Закрыть" HorizontalAlignment="Right" Margin="0,0,30,0" VerticalAlignment="Center"
+                Width="100" Height="25" Command="{Binding CloseClick}"/>
+            </DockPanel>
+            <DockPanel>
+                <DataGrid x:Name="WPFDataGrid" Margin="5,5,5,5" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                  AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding SigEnvelopes}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="SigContainer" Width="100" Binding="{Binding Path=SigContainer}" />
+                        <DataGridTextColumn Header="Object" Width="300" Binding="{Binding Path=Object}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+</Page>
