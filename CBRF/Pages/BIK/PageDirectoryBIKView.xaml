@@ -1,0 +1,43 @@
+﻿<Page x:Class="CBRF.Pages.BIK.PageDirectoryBIKView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CBRF.Pages.BIK"
+      mc:Ignorable="d" 
+      Background="{StaticResource BackGroundColor}"
+      DataContext="{Binding PageDirectoryBIKViewViewModel, Source={StaticResource ViewModelLocator}}"
+      >
+
+    <Grid>
+        <DockPanel>
+            <DockPanel DockPanel.Dock="Top" Background="{StaticResource HeaderBackGroundColor}" Height="30">
+                <Frame Source="/Frames/Header.xaml"/>
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Bottom"  Height="30">
+                <Button Content="Закрыть" HorizontalAlignment="Right" Margin="0,0,30,0" VerticalAlignment="Center"
+                Width="100" Height="25" Command="{Binding CloseClick}"/>
+            </DockPanel>
+            <DockPanel>
+                <DataGrid x:Name="WPFDataGrid" Margin="5,5,5,5" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                  AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding ParticipantInfo}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="BIK" Width="100" Binding="{Binding Path=BIC}" />
+                        <DataGridTextColumn Header="NameP" Width="300" Binding="{Binding Path=ParticipantInfoF[0].NameP}" />
+                        <DataGridTextColumn Header="Rgn" Width="50" Binding="{Binding Path=ParticipantInfoF[0].Rgn}" />
+                        <DataGridTextColumn Header="Ind" Width="50" Binding="{Binding Path=ParticipantInfoF[0].Ind}" />
+                        <DataGridTextColumn Header="Tnp" Width="50" Binding="{Binding Path=ParticipantInfoF[0].Tnp}"/>
+                        <DataGridTextColumn Header="Nnp" Width="200" Binding="{Binding Path=ParticipantInfoF[0].Nnp}"/>
+                        <DataGridTextColumn Header="Adr" Width="300" Binding="{Binding Path=ParticipantInfoF[0].Adr}"/>
+                        <DataGridTextColumn Header="DateIn" Width="70" Binding="{Binding Path=ParticipantInfoF[0].DateIn}"/>
+                        <DataGridTextColumn Header="PtType" Width="50" Binding="{Binding Path=ParticipantInfoF[0].PtType}"/>
+                        <DataGridTextColumn Header="Srvcs" Width="30" Binding="{Binding Path=ParticipantInfoF[0].Srvcs}"/>
+                        <DataGridTextColumn Header="XchType" Width="30" Binding="{Binding Path=ParticipantInfoF[0].XchType}"/>
+                        <DataGridTextColumn Header="UID" Width="100" Binding="{Binding Path=ParticipantInfoF[0].UID}"/>
+                        <DataGridTextColumn Header="ParticipantStatus" Width="50" Binding="{Binding Path=ParticipantInfoF[0].ParticipantStatus}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+</Page>

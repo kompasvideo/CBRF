@@ -1,0 +1,11 @@
+﻿<Application x:Class="CBRF.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:CBRF"
+             StartupUri="Views/Windows/MainWindow.xaml">
+    <Application.Resources>
+        <local:ViewModelLocator x:Key="ViewModelLocator"/>
+        <SolidColorBrush x:Key="BackGroundColor" Color="LightGray" />
+        <SolidColorBrush x:Key="HeaderBackGroundColor" Color="#FF777777" />
+    </Application.Resources>
+</Application>
