@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<SigEnvelope xmlns="urn:cbr-ru:dsig:env:v1.1" xsi:schemaLocation="urn:cbr-ru:dsig:env:v1.1 schema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SigContainer />
+  <Object>YTM0NZomIzI2OTsmIzM0NTueYQ==</Object>
+</SigEnvelope>
