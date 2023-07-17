@@ -44,6 +44,7 @@
     <Compile Include="Class\BIK\20230714_ED807_full.cs" />
     <Compile Include="Class\UFEBS_2023_4_1\cbr_dsig_env_v1_1_0.cs" />
     <Compile Include="Class\UFEBS_2023_4_1\cbr_dsig_v1_1_0.cs" />
+    <Compile Include="Class\UFEBS_2023_4_1\cbr_ed_clpu_v2023_4_0.cs" />
     <Compile Include="Class\UFEBS_2023_4_1\cbr_msg_props_v2017_2_0.cs" />
     <Compile Include="Class\UFEBS_2023_4_1\soap-envelope.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
