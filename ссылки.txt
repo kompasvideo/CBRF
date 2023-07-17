@@ -1,1 +1,6 @@
+https://yandex.ru/search/?text=xml+преобразовать+в+файл+базы+данных+c%23&lr=213&clid=2270455&win=560
+
 https://stackoverflow.com/questions/3574836/net-how-to-insert-xml-document-into-sql-server/3574884#3574884
+https://metanit.com/sharp/adonet/3.9.php
+https://learn.microsoft.com/ru-ru/dotnet/framework/data/adonet/dataset-datatable-dataview/loading-a-dataset-from-xml
+http://www.wladm.narod.ru/C_Sharp/xml004.html

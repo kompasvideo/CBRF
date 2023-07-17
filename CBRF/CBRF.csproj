@@ -183,6 +183,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\UFEBS_2023_4_1\PageCbrDsigV110.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -210,6 +214,9 @@
     <Compile Include="Pages\UFEBS_2023_4_1\PageCbrDsigEnvV110.xaml.cs">
       <DependentUpon>PageCbrDsigEnvV110.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\UFEBS_2023_4_1\PageCbrDsigV110.xaml.cs">
+      <DependentUpon>PageCbrDsigV110.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Services\BIK\DirectoryBIK.cs" />
     <Compile Include="Services\MessageBus.cs" />
     <Compile Include="Services\MessageSubscriber.cs" />
@@ -223,6 +230,7 @@
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\Frames\HeaderViewModel.cs" />
     <Compile Include="ViewModels\Main\PageMainViewModel.cs" />
+    <Compile Include="ViewModels\UFEBS_2023_4_1\PageCbrDsigV110ViewModel.cs" />
     <Compile Include="ViewModels\UFEBS_2023_4_1\PageCbrDsigEnvV110ViewModel.cs" />
     <Compile Include="Views\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

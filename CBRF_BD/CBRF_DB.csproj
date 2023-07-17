@@ -150,6 +150,7 @@
     <Compile Include="ApplicationContext\BIK\BIKApplicationContext.cs" />
     <Compile Include="ApplicationContext\UFEBS_2023_4_1\CbrDsigEnvV10ApplicationContext.cs" />
     <Compile Include="Interfaces\BIK\IDBDirectoryBIK.cs" />
+    <Compile Include="Interfaces\UFEBS_2023_4_1\IDBCbrDsigvV110.cs" />
     <Compile Include="Interfaces\UFEBS_2023_4_1\IDBCbrDsigEnvV110.cs" />
     <Compile Include="Models\BIK\Accounts.cs" />
     <Compile Include="Models\BIK\AccRstrList.cs" />
@@ -170,6 +171,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Services\BIK\DBDirectoryBIK.cs.cs" />
+    <Compile Include="Services\UFEBS_2023_4_1\DBCbrDsigV110.cs" />
     <Compile Include="Services\UFEBS_2023_4_1\DBCbrDsigEnvV110.cs" />
   </ItemGroup>
   <ItemGroup>

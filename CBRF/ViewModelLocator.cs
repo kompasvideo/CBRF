@@ -37,6 +37,7 @@ namespace CBRF
             services.AddSingleton<ICbrDsigV110, CbrDsigV110>();
             services.AddSingleton<IXmlFile, XmlFile>();
             services.AddSingleton<IDBCbrDsigEnvV110, DBCbrDsigEnvV110> ();
+            services.AddSingleton<IDBCbrDsigV110, DBCbrDsigV110>();
 
             _provider = services.BuildServiceProvider();
 

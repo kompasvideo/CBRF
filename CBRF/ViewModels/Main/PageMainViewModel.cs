@@ -127,8 +127,8 @@ namespace CBRF.ViewModels.Main
             {
                 return new MyDelegateCommand(async () =>
                 {
-                    await messageBus.SendTo<PageCbrDsigEnvV110ViewModel>(new Message(""));
-                    pageService.ChangePage(new PageCbrDsigEnvV110());
+                    await messageBus.SendTo<PageCbrDsigV110ViewModel>(new Message(""));
+                    pageService.ChangePage(new PageCbrDsigV110());
                 });
             }
         }
