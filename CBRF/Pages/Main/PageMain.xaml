@@ -40,10 +40,10 @@
                 Command="{Binding LoadKAZKCommand}" Width="220" Height="100"/>
                         <Button Grid.Column="1" Content="Просмотреть значение КА, ЗК из БД" HorizontalAlignment="Center" VerticalAlignment="Center"
                 Command="{Binding ViewKAZKCommand}" Width="220" Height="100"/>
-                        <Button Grid.Column="2" Content="Загрузить Конверт для КА" HorizontalAlignment="Center" VerticalAlignment="Center"
-                Command="{Binding ViewCommand}" Width="220" Height="100"/>
-                        <Button Grid.Column="3" Content="Загрузить Конверт для КА" HorizontalAlignment="Center" VerticalAlignment="Center"
-                Command="{Binding ViewCommand}" Width="220" Height="100"/>
+                        <Button Grid.Column="2" Content="Загрузить Конверт для КА в БД" HorizontalAlignment="Center" VerticalAlignment="Center"
+                Command="{Binding LoadKACommand}" Width="220" Height="100"/>
+                        <Button Grid.Column="3" Content="Просмотреть Конверт для КА из БД" HorizontalAlignment="Center" VerticalAlignment="Center"
+                Command="{Binding ViewKACommand}" Width="220" Height="100"/>
                     </Grid>
                 </Grid>
             </DockPanel>

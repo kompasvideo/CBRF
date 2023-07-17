@@ -34,6 +34,7 @@ namespace CBRF
             services.AddSingleton<IDirectoryBIK, DirectoryBIK>();
             services.AddSingleton<IDBDirectoryBIK, DBDirectoryBIK>();
             services.AddSingleton<ICbrDsigEnvV110, CbrDsigEnvV110>();
+            services.AddSingleton<ICbrDsigV110, CbrDsigV110>();
             services.AddSingleton<IXmlFile, XmlFile>();
             services.AddSingleton<IDBCbrDsigEnvV110, DBCbrDsigEnvV110> ();
 

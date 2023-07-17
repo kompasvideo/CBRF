@@ -102,6 +102,36 @@ namespace CBRF.ViewModels.Main
                 });
             }
         }
+
+        /// <summary>
+        /// Загрузить Конверт для КА в БД
+        /// </summary>
+        public ICommand LoadKACommand
+        {
+            get
+            {
+                return new MyDelegateCommand(() =>
+                {
+                    cbrDsigEnvV110.LoadXmlAndSaveToDB();
+                    MessageBox.Show("Загрузка Конверта для КА в БД завершена");
+                });
+            }
+        }
+
+        /// <summary>
+        /// Просмотреть Конверт для КА из БД
+        /// </summary>        
+        public ICommand ViewKACommand
+        {
+            get
+            {
+                return new MyDelegateCommand(async () =>
+                {
+                    await messageBus.SendTo<PageCbrDsigEnvV110ViewModel>(new Message(""));
+                    pageService.ChangePage(new PageCbrDsigEnvV110());
+                });
+            }
+        }
         #endregion
     }
 }
