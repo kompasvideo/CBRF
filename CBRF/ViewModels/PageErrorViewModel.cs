@@ -6,20 +6,31 @@ using CBRF.Pages;
 using CBRF.Pages.Main;
 using CBRF.Services;
 using CBRF.ViewModels.Base;
-using CBRF_DB.Models;
+using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Net.Mail;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Documents;
 using System.Windows.Input;
 
-namespace CBRF.ViewModels.BIK
+namespace CBRF.ViewModels
 {
-    public class PageDirectoryBIKViewViewModel : ViewModel
+    public class PageErrorViewModel : ViewModel
     {
-        public ObservableCollection<BICDirectoryEntry> ParticipantInfo { get; set; }
-
+        private string errorStr = "";
+        public string ErrorStr
+        {
+            get { return errorStr; }
+            set
+            {
+                if (errorStr.Equals(value) == false)
+                {
+                    errorStr = value;
+                    // Call OnPropertyChanged whenever the property is updated
+                    OnPropertyChanged("ErrorStr");
+                }
+            }
+        }
         #region Внутренние поля 
         /// <summary>
         /// класс, переключающий страницы на xaml-окне
@@ -30,26 +41,16 @@ namespace CBRF.ViewModels.BIK
         /// класс, отправляющий сообщения другим страницам
         /// </summary>
         private readonly MessageBus messageBus;
-        private readonly IDirectoryBIK directoryBIK;
         #endregion
 
         #region Конструктор
-        public PageDirectoryBIKViewViewModel(PageService pageService, MessageBus messageBus, IDirectoryBIK directoryBIK)
+        public PageErrorViewModel(PageService pageService, MessageBus messageBus)
         {
             this.pageService = pageService;
             this.messageBus = messageBus;
-            this.directoryBIK = directoryBIK;
             messageBus.Receive<Message>(this, message =>
             {
-                var item = directoryBIK.ViewDirectoryBIKInDB();
-                if (item != null && item.Count > 0) ParticipantInfo = new ObservableCollection<BICDirectoryEntry>(item);
-                else
-                {
-                    ParticipantInfo = new ObservableCollection<BICDirectoryEntry>();
-                    StatData.Error = true;
-                    StatData.ErrorMessage = "Нет БД БИК";
-                    messageBus.SendTo<PageErrorViewModel>(new Message(""));                    
-                }
+                ErrorStr = StatData.ErrorMessage;
                 return Task.CompletedTask;
             });
         }
@@ -57,19 +58,19 @@ namespace CBRF.ViewModels.BIK
 
         #region Комманды
         /// <summary>
-        /// Закрыть
+        /// Нажата кнопка OK
         /// </summary>
-        public ICommand CloseClick
+        public ICommand OKClick
         {
             get
             {
                 return new MyDelegateCommand(() =>
                 {
+                    StatData.Error = false;
                     pageService.ChangePage(new PageMain());
                 });
             }
-        }       
+        }
         #endregion
     }
 }
-

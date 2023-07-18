@@ -27,6 +27,8 @@ namespace CBRF
             services.AddTransient<MainWindowViewModel>();
             services.AddTransient<HeaderViewModel>();
             services.AddSingleton<PageMainViewModel>();
+            services.AddSingleton<PageErrorViewModel>();
+            services.AddSingleton<PageMessageViewModel>();
             services.AddSingleton<PageDirectoryBIKViewViewModel>();
             services.AddSingleton<PageCbrDsigEnvV110ViewModel>();
             services.AddSingleton<PageService>();
@@ -49,6 +51,8 @@ namespace CBRF
         public MainWindowViewModel MainWindowViewModel => _provider.GetRequiredService<MainWindowViewModel>();
         public HeaderViewModel HeaderViewModel => _provider.GetRequiredService<HeaderViewModel>();
         public PageMainViewModel PageMainViewModel => _provider.GetRequiredService<PageMainViewModel>();
+        public PageMessageViewModel PageMessageViewModel => _provider.GetRequiredService<PageMessageViewModel>();
+        public PageErrorViewModel PageErrorViewModel => _provider.GetRequiredService<PageErrorViewModel>();
         public PageDirectoryBIKViewViewModel PageDirectoryBIKViewViewModel => _provider.GetRequiredService<PageDirectoryBIKViewViewModel>();
         public PageCbrDsigEnvV110ViewModel PageCbrDsigEnvV110ViewModel => _provider.GetRequiredService<PageCbrDsigEnvV110ViewModel>();
     }

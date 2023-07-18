@@ -10,7 +10,7 @@ namespace CBRF_DB.Interfaces.UFEBS_2023_4_1
 {
     public interface IDBCbrDsigEnvV110
     {
-        void Save(SigEnvelopeType loadData);
+        bool Save(SigEnvelopeType loadData);
         List<SigEnvelope> Load();
     }
 }

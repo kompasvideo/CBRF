@@ -7,5 +7,10 @@
         <local:ViewModelLocator x:Key="ViewModelLocator"/>
         <SolidColorBrush x:Key="BackGroundColor" Color="LightGray" />
         <SolidColorBrush x:Key="HeaderBackGroundColor" Color="#FF777777" />
+        <Style TargetType="{x:Type Border}" x:Key="BorderDialog">
+            <Setter Property="BorderBrush" Value="#333"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="5"/>
+        </Style>
     </Application.Resources>
 </Application>

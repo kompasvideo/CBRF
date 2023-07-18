@@ -1,27 +1,33 @@
 ﻿using CBRF.Infrastructure.Commands;
-using CBRF.Interfaces.BIK;
-using CBRF.Interfaces.UFEBS_2023_4_1;
 using CBRF.Messages;
 using CBRF.Pages.Main;
 using CBRF.Services;
-using CBRF.Services.BIK;
 using CBRF.ViewModels.Base;
-using CBRF_DB.Models;
-using CBRF_DB.Models.UFEBS_2023_4_1;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace CBRF.ViewModels.UFEBS_2023_4_1
+namespace CBRF.ViewModels
 {
-    public class PageCbrDsigEnvV110ViewModel : ViewModel
+    public class PageMessageViewModel : ViewModel
     {
-        public ObservableCollection<SigEnvelope> SigEnvelopes { get; set; }
-
+        private string messageStr = "";
+        public string MessageStr
+        {
+            get { return messageStr; }
+            set
+            {
+                if (messageStr.Equals(value) == false)
+                {
+                    messageStr = value;
+                    // Call OnPropertyChanged whenever the property is updated
+                    OnPropertyChanged("ErrorStr");
+                }
+            }
+        }
         #region Внутренние поля 
         /// <summary>
         /// класс, переключающий страницы на xaml-окне
@@ -32,36 +38,31 @@ namespace CBRF.ViewModels.UFEBS_2023_4_1
         /// класс, отправляющий сообщения другим страницам
         /// </summary>
         private readonly MessageBus messageBus;
-        private readonly ICbrDsigEnvV110 cbrDsigEnvV110;
         #endregion
 
         #region Конструктор
-        public PageCbrDsigEnvV110ViewModel(PageService pageService, MessageBus messageBus, ICbrDsigEnvV110 cbrDsigEnvV110)
+        public PageMessageViewModel(PageService pageService, MessageBus messageBus)
         {
             this.pageService = pageService;
             this.messageBus = messageBus;
-            this.cbrDsigEnvV110 = cbrDsigEnvV110;
             messageBus.Receive<Message>(this, message =>
             {
-                var item = cbrDsigEnvV110.ViewSigEnvelopeInDb();
-                if (item != null) SigEnvelopes = new ObservableCollection<SigEnvelope>(item);
-                else SigEnvelopes = new ObservableCollection<SigEnvelope>();
+                MessageStr = message.Str;
                 return Task.CompletedTask;
             });
         }
         #endregion
 
         #region Комманды
-
         /// <summary>
-        /// Закрыть
+        /// Нажата кнопка OK
         /// </summary>
-        public ICommand CloseClick
+        public ICommand OKClick
         {
             get
             {
                 return new MyDelegateCommand(() =>
-                {
+                {                    
                     pageService.ChangePage(new PageMain());
                 });
             }

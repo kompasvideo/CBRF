@@ -138,13 +138,17 @@ namespace CBRF_DB.Services
             List<BICDirectoryEntry> entries = null;
             using (BIKApplicationContext db = new BIKApplicationContext())
             {
-                db.FAccRstrList.Load();
-                db.FAccounts.Load();
-                db.FRstrList.Load();
-                db.FSWBICS.Load();
-                db.FParticipantInfo.Load();
-                db.FBICDirectoryEntry.Load();
-                entries = db.FBICDirectoryEntry.ToList();
+                try
+                {
+                    db.FAccRstrList.Load();
+                    db.FAccounts.Load();
+                    db.FRstrList.Load();
+                    db.FSWBICS.Load();
+                    db.FParticipantInfo.Load();
+                    db.FBICDirectoryEntry.Load();
+                    entries = db.FBICDirectoryEntry.ToList();
+                }
+                catch(Exception) { }
             }
             return entries;
         }

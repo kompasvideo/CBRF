@@ -3,6 +3,7 @@ using CBRF.Infrastructure.Commands;
 using CBRF.Interfaces.BIK;
 using CBRF.Interfaces.UFEBS_2023_4_1;
 using CBRF.Messages;
+using CBRF.Pages;
 using CBRF.Pages.BIK;
 using CBRF.Pages.UFEBS_2023_4_1;
 using CBRF.Services;
@@ -50,10 +51,12 @@ namespace CBRF.ViewModels.Main
         {
             get
             {
-                return new MyDelegateCommand(() =>
+                return new MyDelegateCommand(async () =>
                 {
                     directoryBIK.LoadDirectoryBIKAndSaveToDB();
-                    MessageBox.Show("Загрузка справочника БИК в БД завершена");
+                    //MessageBox.Show("Загрузка справочника БИК в БД завершена");
+                    await messageBus.SendTo<PageMessageViewModel>(new Message("Загрузка справочника БИК в БД завершена"));
+                    pageService.ChangePage(new PageMessage());
                 });
             }
         }
@@ -68,7 +71,8 @@ namespace CBRF.ViewModels.Main
                 return new MyDelegateCommand(async () =>
                 {                    
                     await messageBus.SendTo<PageDirectoryBIKViewViewModel>(new Message(""));
-                    pageService.ChangePage(new PageDirectoryBIKView());
+                    if (! StatData.Error) pageService.ChangePage(new PageDirectoryBIKView());
+                    else pageService.ChangePage(new PageError());
                 });
             }
         }
@@ -80,10 +84,19 @@ namespace CBRF.ViewModels.Main
         {
             get
             {
-                return new MyDelegateCommand(() =>
+                return new MyDelegateCommand(async() =>
                 {
-                    cbrDsigEnvV110.LoadXmlAndSaveToDB();                    
-                    MessageBox.Show("Загрузка значений КА, ЗК в БД завершена");
+                    if (cbrDsigEnvV110.LoadXmlAndSaveToDB())
+                    {
+                        await messageBus.SendTo<PageMessageViewModel>(new Message("Загрузка значений КА, ЗК в БД завершена"));
+                        pageService.ChangePage(new PageMessage());
+                    }
+                    else
+                    {
+                        await messageBus.SendTo<PageErrorViewModel>(new Message("Ошибка валидации xml файла"));
+                        pageService.ChangePage(new PageError());
+                    }
+                    //MessageBox.Show("");
                 });
             }
         }
@@ -97,8 +110,16 @@ namespace CBRF.ViewModels.Main
             {
                 return new MyDelegateCommand(async () =>
                 {
-                    await messageBus.SendTo<PageCbrDsigEnvV110ViewModel>(new Message(""));
-                    pageService.ChangePage(new PageCbrDsigEnvV110());
+                    if (!StatData.Error)
+                    {
+                        await messageBus.SendTo<PageCbrDsigEnvV110ViewModel>(new Message(""));
+                        pageService.ChangePage(new PageCbrDsigEnvV110());
+                    }
+                    else
+                    {
+                        await messageBus.SendTo<PageErrorViewModel>(new Message(""));
+                        pageService.ChangePage(new PageError());
+                    }
                 });
             }
         }
@@ -110,10 +131,12 @@ namespace CBRF.ViewModels.Main
         {
             get
             {
-                return new MyDelegateCommand(() =>
+                return new MyDelegateCommand(async () =>
                 {
                     cbrDsigEnvV110.LoadXmlAndSaveToDB();
-                    MessageBox.Show("Загрузка Конверта для КА в БД завершена");
+                    //MessageBox.Show("Загрузка Конверта для КА в БД завершена");
+                    await messageBus.SendTo<PageMessageViewModel>(new Message("Загрузка справочника БИК в БД завершена"));
+                    pageService.ChangePage(new PageMessage());
                 });
             }
         }
@@ -127,8 +150,16 @@ namespace CBRF.ViewModels.Main
             {
                 return new MyDelegateCommand(async () =>
                 {
-                    await messageBus.SendTo<PageCbrDsigV110ViewModel>(new Message(""));
-                    pageService.ChangePage(new PageCbrDsigV110());
+                    if (!StatData.Error)
+                    {
+                        await messageBus.SendTo<PageCbrDsigV110ViewModel>(new Message(""));
+                        pageService.ChangePage(new PageCbrDsigV110());
+                    }
+                    else
+                    {
+                        await messageBus.SendTo<PageErrorViewModel>(new Message(""));
+                        pageService.ChangePage(new PageError());
+                    }
                 });
             }
         }

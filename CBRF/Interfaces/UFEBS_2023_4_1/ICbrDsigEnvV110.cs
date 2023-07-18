@@ -9,7 +9,7 @@ namespace CBRF.Interfaces.UFEBS_2023_4_1
 {
     public interface ICbrDsigEnvV110
     {
-        void LoadXmlAndSaveToDB();
+        bool LoadXmlAndSaveToDB();
         List<SigEnvelope> ViewSigEnvelopeInDb();
     }
 }

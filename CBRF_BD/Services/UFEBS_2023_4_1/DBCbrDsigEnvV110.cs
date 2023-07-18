@@ -6,12 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace CBRF_DB.Services.UFEBS_2023_4_1
 {
     public class DBCbrDsigEnvV110 : IDBCbrDsigEnvV110
     {
-        public void Save(SigEnvelopeType loadData)
+        public bool Save(SigEnvelopeType loadData)
         {
             using (CbrDsigEnvV10ApplicationContext db = new CbrDsigEnvV10ApplicationContext())
             {
@@ -20,15 +21,22 @@ namespace CBRF_DB.Services.UFEBS_2023_4_1
                 db.Database.EnsureCreated();
                 var path = new Uri(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase)).LocalPath;
                 path += "\\" + Properties.Resources.StringDb;
-                SigEnvelope sigEnvelope = new SigEnvelope
+                try
                 {
-                    SigContainer = loadData.SigContainer.ToString(),
-                    Object = loadData.Object,
-                };
-                db.FSigEnvelope.Add(sigEnvelope);                
-                db.SaveChanges();
+                    SigEnvelope sigEnvelope = new SigEnvelope
+                    {
+                        SigContainer = loadData.SigContainer.ToString(),
+                        Object = loadData.Object,
+                    };
+                    db.FSigEnvelope.Add(sigEnvelope);
+                    db.SaveChanges();
+                }
+                catch (Exception ex) 
+                { 
+                    return false;
+                }
             }
-
+            return true;
         }
 
         public List<SigEnvelope> Load()
@@ -36,8 +44,14 @@ namespace CBRF_DB.Services.UFEBS_2023_4_1
             List<SigEnvelope> entries = null;
             using (CbrDsigEnvV10ApplicationContext db = new CbrDsigEnvV10ApplicationContext())
             {
-                db.FSigEnvelope.Load();
-                entries = db.FSigEnvelope.ToList();
+                try
+                {
+                    db.FSigEnvelope.Load();
+                    entries = db.FSigEnvelope.ToList();
+                }
+                catch (Exception) 
+                {
+                }
             }
             return entries;
         }

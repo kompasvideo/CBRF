@@ -1,4 +1,5 @@
-﻿using CBRF.Interfaces;
+﻿using CBRF.Infrastructure;
+using CBRF.Interfaces;
 using CBRF.Interfaces.UFEBS_2023_4_1;
 using CBRF_DB.Interfaces.UFEBS_2023_4_1;
 using CBRF_DB.Models.UFEBS_2023_4_1;
@@ -35,7 +36,11 @@ namespace CBRF.Services.UFEBS_2023_4_1
                 if (xmlFile.VlidationXml(path + xsdName, urnSchema, xmlName))
                 {
                     SigEnvelopeType loadData = xmlFile.OpenXml2(xmlName);
-                    iDBCbrDsigEnvV110.Save(loadData);
+                    if (!iDBCbrDsigEnvV110.Save(loadData))
+                    {
+                        StatData.Error = true;
+                        StatData.ErrorMessage = "Ошибка";
+                    }
                 }
             }
         }

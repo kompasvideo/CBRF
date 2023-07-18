@@ -9,11 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CBRF_DB", "CBRF_BD\CBRF_DB.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CBRF_XML", "CBRF_XML\CBRF_XML.csproj", "{E4D3959C-62CE-49DC-806A-0182AC45F482}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{4619B65A-53CD-4B36-A919-2335E504D2D3}"
-	ProjectSection(SolutionItems) = preProject
-		ссылки.txt = ссылки.txt
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -179,6 +179,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PageError.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageMessage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\UFEBS_2023_4_1\PageCbrDsigEnvV110.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -199,6 +207,7 @@
       <DependentUpon>Header.xaml</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Commands\MyDelegateCommand.cs" />
+    <Compile Include="Infrastructure\StatData.cs" />
     <Compile Include="Interfaces\BIK\IDirectoryBIK.cs" />
     <Compile Include="Interfaces\IMessage.cs" />
     <Compile Include="Interfaces\IXmlFile.cs" />
@@ -210,6 +219,12 @@
     </Compile>
     <Compile Include="Pages\Main\PageMain.xaml.cs">
       <DependentUpon>PageMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageError.xaml.cs">
+      <DependentUpon>PageError.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageMessage.xaml.cs">
+      <DependentUpon>PageMessage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\UFEBS_2023_4_1\PageCbrDsigEnvV110.xaml.cs">
       <DependentUpon>PageCbrDsigEnvV110.xaml</DependentUpon>
@@ -230,6 +245,8 @@
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\Frames\HeaderViewModel.cs" />
     <Compile Include="ViewModels\Main\PageMainViewModel.cs" />
+    <Compile Include="ViewModels\PageErrorViewModel.cs" />
+    <Compile Include="ViewModels\PageMessageViewModel.cs" />
     <Compile Include="ViewModels\UFEBS_2023_4_1\PageCbrDsigV110ViewModel.cs" />
     <Compile Include="ViewModels\UFEBS_2023_4_1\PageCbrDsigEnvV110ViewModel.cs" />
     <Compile Include="Views\Windows\MainWindow.xaml.cs">

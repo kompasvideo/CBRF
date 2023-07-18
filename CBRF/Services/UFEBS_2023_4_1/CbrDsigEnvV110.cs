@@ -1,4 +1,5 @@
-﻿using CBRF.Interfaces;
+﻿using CBRF.Infrastructure;
+using CBRF.Interfaces;
 using CBRF.Interfaces.UFEBS_2023_4_1;
 using CBRF_DB.Interfaces.UFEBS_2023_4_1;
 using CBRF_DB.Models.UFEBS_2023_4_1;
@@ -26,7 +27,7 @@ namespace CBRF.Services.UFEBS_2023_4_1
             this.iDBCbrDsigEnvV110 = iDBCbrDsigEnvV110;
         }
 
-        public void LoadXmlAndSaveToDB()
+        public bool LoadXmlAndSaveToDB()
         {
             string xmlName = null;
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -40,13 +41,21 @@ namespace CBRF.Services.UFEBS_2023_4_1
                 {
                     SigEnvelopeType loadData = xmlFile.OpenXml2(xmlName);
                     iDBCbrDsigEnvV110.Save(loadData);
-                }
+                    return true;
+                }                
             }
+            return false;
         }
 
         public List<SigEnvelope> ViewSigEnvelopeInDb()
         {
-            return iDBCbrDsigEnvV110.Load();
+            var item = iDBCbrDsigEnvV110.Load();
+            if (item == null)
+            {
+                StatData.Error = true;
+                StatData.ErrorMessage = "Нет БД БИК";
+            }
+            return item;
         }
     }
 }

@@ -11,6 +11,7 @@ using System.Xml.Linq;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 using System.Xml;
+using CBRF.Infrastructure;
 
 namespace CBRF.Services
 {
@@ -32,7 +33,9 @@ namespace CBRF.Services
             catch (Exception)
             {
                 result = false;
-                MessageBox.Show("Error validation xml file");
+                StatData.Error = true;
+                //MessageBox.Show("Error validation xml file");
+                StatData.ErrorMessage = "Error validation xml file";
             }
             return result;
 
@@ -58,7 +61,9 @@ namespace CBRF.Services
             }
             catch (Exception)
             {
-                MessageBox.Show("Error deserialize xml file");
+                StatData.Error = true;
+                StatData.ErrorMessage = "Error deserialize xml file";
+                //MessageBox.Show("Error deserialize xml file");
             }
             return loadData;
         }
@@ -76,7 +81,9 @@ namespace CBRF.Services
             }
             catch (Exception)
             {
-                MessageBox.Show("Error deserialize xml file");
+                StatData.Error = true;
+                StatData.ErrorMessage = "Error deserialize xml file";
+                //MessageBox.Show("Error deserialize xml file");
             }
             return loadData;
         }

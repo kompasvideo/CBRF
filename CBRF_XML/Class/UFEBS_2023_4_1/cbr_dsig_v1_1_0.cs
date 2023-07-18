@@ -16,37 +16,37 @@ using System.Xml.Serialization;
 
 
 /// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1590.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:cbr-ru:dsig:v1.1")]
-[System.Xml.Serialization.XmlRootAttribute("SigValue", Namespace="urn:cbr-ru:dsig:v1.1", IsNullable=false)]
-public partial class SigValueType {
+//[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1590.0")]
+//[System.SerializableAttribute()]
+//[System.Diagnostics.DebuggerStepThroughAttribute()]
+//[System.ComponentModel.DesignerCategoryAttribute("code")]
+//[System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:cbr-ru:dsig:v1.1")]
+//[System.Xml.Serialization.XmlRootAttribute("SigValue", Namespace="urn:cbr-ru:dsig:v1.1", IsNullable=false)]
+//public partial class SigValueType {
     
-    private string sigIdField;
+//    private string sigIdField;
     
-    private byte[] valueField;
+//    private byte[] valueField;
     
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
-    public string SigId {
-        get {
-            return this.sigIdField;
-        }
-        set {
-            this.sigIdField = value;
-        }
-    }
+//    /// <remarks/>
+//    [System.Xml.Serialization.XmlAttributeAttribute()]
+//    public string SigId {
+//        get {
+//            return this.sigIdField;
+//        }
+//        set {
+//            this.sigIdField = value;
+//        }
+//    }
     
-    /// <remarks/>
-    [System.Xml.Serialization.XmlTextAttribute(DataType="base64Binary")]
-    public byte[] Value {
-        get {
-            return this.valueField;
-        }
-        set {
-            this.valueField = value;
-        }
-    }
-}
+//    /// <remarks/>
+//    [System.Xml.Serialization.XmlTextAttribute(DataType="base64Binary")]
+//    public byte[] Value {
+//        get {
+//            return this.valueField;
+//        }
+//        set {
+//            this.valueField = value;
+//        }
+//    }
+//}

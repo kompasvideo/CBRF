@@ -101,63 +101,63 @@ public partial class ED201 : ESID {
 }
 
 /// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(ED))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(EDWithDeclaration))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(PacketEDWithPartInfo))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(ESWithMandatoryEDReceiver))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(ESWithEDSender))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(ESID))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(ED391))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(ED201))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(ESIDResponse))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(ESIDWithPartInfo))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(EPDComplete))]
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1590.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:cbr-ru:ed:v2.0")]
-public partial class EDRefID {
+//[System.Xml.Serialization.XmlIncludeAttribute(typeof(ED))]
+//[System.Xml.Serialization.XmlIncludeAttribute(typeof(EDWithDeclaration))]
+//[System.Xml.Serialization.XmlIncludeAttribute(typeof(PacketEDWithPartInfo))]
+//[System.Xml.Serialization.XmlIncludeAttribute(typeof(ESWithMandatoryEDReceiver))]
+//[System.Xml.Serialization.XmlIncludeAttribute(typeof(ESWithEDSender))]
+//[System.Xml.Serialization.XmlIncludeAttribute(typeof(ESID))]
+//[System.Xml.Serialization.XmlIncludeAttribute(typeof(ED391))]
+//[System.Xml.Serialization.XmlIncludeAttribute(typeof(ED201))]
+//[System.Xml.Serialization.XmlIncludeAttribute(typeof(ESIDResponse))]
+//[System.Xml.Serialization.XmlIncludeAttribute(typeof(ESIDWithPartInfo))]
+//[System.Xml.Serialization.XmlIncludeAttribute(typeof(EPDComplete))]
+//[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1590.0")]
+//[System.SerializableAttribute()]
+//[System.Diagnostics.DebuggerStepThroughAttribute()]
+//[System.ComponentModel.DesignerCategoryAttribute("code")]
+//[System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:cbr-ru:ed:v2.0")]
+//public partial class EDRefID {
     
-    private string eDNoField;
+//    private string eDNoField;
     
-    private System.DateTime eDDateField;
+//    private System.DateTime eDDateField;
     
-    private string eDAuthorField;
+//    private string eDAuthorField;
     
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute(DataType="integer")]
-    public string EDNo {
-        get {
-            return this.eDNoField;
-        }
-        set {
-            this.eDNoField = value;
-        }
-    }
+//    /// <remarks/>
+//    [System.Xml.Serialization.XmlAttributeAttribute(DataType="integer")]
+//    public string EDNo {
+//        get {
+//            return this.eDNoField;
+//        }
+//        set {
+//            this.eDNoField = value;
+//        }
+//    }
     
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute(DataType="date")]
-    public System.DateTime EDDate {
-        get {
-            return this.eDDateField;
-        }
-        set {
-            this.eDDateField = value;
-        }
-    }
+//    /// <remarks/>
+//    [System.Xml.Serialization.XmlAttributeAttribute(DataType="date")]
+//    public System.DateTime EDDate {
+//        get {
+//            return this.eDDateField;
+//        }
+//        set {
+//            this.eDDateField = value;
+//        }
+//    }
     
-    /// <remarks/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
-    public string EDAuthor {
-        get {
-            return this.eDAuthorField;
-        }
-        set {
-            this.eDAuthorField = value;
-        }
-    }
-}
+//    /// <remarks/>
+//    [System.Xml.Serialization.XmlAttributeAttribute()]
+//    public string EDAuthor {
+//        get {
+//            return this.eDAuthorField;
+//        }
+//        set {
+//            this.eDAuthorField = value;
+//        }
+//    }
+//}
 
 /// <remarks/>
 [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1590.0")]
