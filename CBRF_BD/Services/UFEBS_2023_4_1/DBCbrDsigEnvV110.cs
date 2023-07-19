@@ -1,12 +1,10 @@
 ﻿using CBRF_DB.Interfaces.UFEBS_2023_4_1;
-using CBRF_DB.Models;
 using CBRF_DB.Models.UFEBS_2023_4_1;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
 
 namespace CBRF_DB.Services.UFEBS_2023_4_1
 {
